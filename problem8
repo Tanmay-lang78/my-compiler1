@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool isPangram(string s) {
+    int present[26] = {0};
+
+    for (char c : s) {
+        if (isalpha(c)) {
+            present[c - 'a'] = 1;
+        }
+    }
+
+    for (int i = 0; i < 26; i++) {
+        if (!present[i]) return false;
+    }
+
+    return true;
+}
+
+int main() {
+    string s = "The quick brown fox jumps over the lazy dog";
+
+    if (isPangram(s))
+        cout << "true";
+    else
+        cout << "false";
+
+    return 0;
+}
